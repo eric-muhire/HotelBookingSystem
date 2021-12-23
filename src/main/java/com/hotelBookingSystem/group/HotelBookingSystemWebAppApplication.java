@@ -10,4 +10,5 @@ public class HotelBookingSystemWebAppApplication {
 		SpringApplication.run(HotelBookingSystemWebAppApplication.class, args);
 	}
 //hej
+	//hej Eric and Sara
 }
