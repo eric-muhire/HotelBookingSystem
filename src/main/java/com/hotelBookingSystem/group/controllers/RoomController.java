@@ -3,9 +3,7 @@ package com.hotelBookingSystem.group.controllers;
 import com.hotelBookingSystem.group.models.Room;
 import com.hotelBookingSystem.group.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +18,12 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping
+    @GetMapping("/rooms")
     public List<Room> getRooms() {
         return roomService.getRooms();
     }
+    @PostMapping("/room")
+    public Room addRoom(@RequestBody Room room) {
+        return roomService.addRoom(room);
+    }
 }
-
