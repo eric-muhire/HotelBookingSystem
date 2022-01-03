@@ -1,10 +1,8 @@
 package com.hotelBookingSystem.group.services;
-
 import org.springframework.stereotype.Service;
-import java.util.List;
 import com.hotelBookingSystem.group.models.Room;
 
-
+import java.util.List;
 @Service
 public class RoomService {
     public List<Room> getRooms() {
