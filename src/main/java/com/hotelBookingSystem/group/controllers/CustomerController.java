@@ -34,7 +34,7 @@ public class CustomerController {
         return customerRepository.delete(customerId);
     }
 
-    @PutMapping("/customer({id}")
+    @PutMapping("/customer/{id}")
     public String updateCustomer(@PathVariable("id") String customerId, @RequestBody Customer customer){
         return customerRepository.update(customerId,customer);
     }
