@@ -71,8 +71,8 @@ private AmazonDynamoDB buildAmazonDynamoDB(){
                 .withCredentials(
                         new AWSStaticCredentialsProvider(
                                 new BasicAWSCredentials(
-                                        "",
-                                        " "
+                                        "AKIAWZZIPIWOIJKW2A4C",
+                                        "9lJCTXqZwXLv08W/uYaQ/vshtLIft4TiCu6bZxTB"
                                 )
 
                         )
