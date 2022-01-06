@@ -15,29 +15,33 @@ public class CustomerRepository {
     @Autowired
     private DynamoDBMapper dynamoDBMapper;
 
-    public Customer save(Customer customer){
+    public Customer save(Customer customer) {
         dynamoDBMapper.save(customer);
         return customer;
-         }
-         public Customer getCustomerById(String customerId){
-        return dynamoDBMapper.load(Customer.class, customerId);
     }
-        public String delete(String customerId) {
-        Customer customer = dynamoDBMapper.load(Customer.class, customerId);
-        dynamoDBMapper.delete(customer);
-            return "Customer Deleted";
 
-    }
-        public String update(String customerId, Customer customer){
+
+    public String update(String customerId, Customer customer) {
         dynamoDBMapper.save(customer,
-                             new DynamoDBSaveExpression()
-                    .withExpectedEntry("customerId",
-                            new ExpectedAttributeValue(
-                                    new AttributeValue().withS(customerId)
+                new DynamoDBSaveExpression()
+                        .withExpectedEntry("customerId",
+                                new ExpectedAttributeValue(
+                                        new AttributeValue().withS(customerId)
 
-                            )));
+                                )));
         return customerId;
 
+    }
+
+    public String delete(String customerId) {
+        Customer customer = dynamoDBMapper.load(Customer.class, customerId);
+        dynamoDBMapper.delete(customer);
+        return "Customer Deleted";
+
+    }
+
+    public Customer getCustomerById(String customerId) {
+        return dynamoDBMapper.load(Customer.class, customerId);
     }
 
 }
