@@ -15,13 +15,13 @@ public class BookingController {
     private final BookingService BookingService;
 
     @Autowired
-    public BookingController(BookingService customerService) {
-        this.BookingService = customerService;
+    public BookingController(BookingService bookingService) {
+        this.BookingService = bookingService;
     }
 
 
     @GetMapping
-    public List<Booking> getCustomer() {
+    public List<Booking> getBooking() {
         return BookingService.getBooking();
 
     }
