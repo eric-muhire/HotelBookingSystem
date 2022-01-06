@@ -2,31 +2,43 @@ package com.hotelBookingSystem.group.controllers;
 
 
 import com.hotelBookingSystem.group.models.Features;
-import com.hotelBookingSystem.group.services.FeaturesService;
+import com.hotelBookingSystem.group.repositories.FeaturesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 
 @RestController
-@RequestMapping(path = "api/v1/features")
 public class FeaturesController {
 
-    private final FeaturesService FeaturesService;
+    //private final FeaturesService FeaturesService;
 
     @Autowired
-    public FeaturesController(FeaturesService FeaturesService){
+    private FeaturesRepository featuresRepository;
+   // public FeaturesController(FeaturesService FeaturesService){
 
-        this.FeaturesService = FeaturesService;
-    }
-    @GetMapping
-    public List<Features> getFeatures() {
-        return FeaturesService.getFeatures();
+    @PostMapping("/features")
+    public Features saveFeatures(@RequestBody Features features){
+        return featuresRepository.save(features);
+        //this.FeaturesService = FeaturesService;
     }
 
+    @GetMapping("/features/{id}")
+   public Features getFeatures(@PathVariable("id") String featuresId){
+        return featuresRepository.getFeaturesById(featuresId);
+    }
+
+    @DeleteMapping("/features/{id}")
+    public String deleteFeatures(@PathVariable("id") String featuresId){
+        return featuresRepository.delete(featuresId);
+    }
+
+    @PutMapping("/features/{id}")
+    public String updateFeatures(@PathVariable("id") String featuresId, @RequestBody Features features) {
+        return featuresRepository.update(featuresId, features);
+            }
 
 }
+
