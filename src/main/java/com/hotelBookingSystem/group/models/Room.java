@@ -21,20 +21,20 @@ public class Room {
 
     private Long id;
     private Integer room_number;
-    private String room_type;
+    private RoomTypes room_type;
     private Integer number_beds;
 
     public Room() {
     }
 
-    public Room(Long id, Integer room_number, String room_type, Integer number_beds) {
+    public Room(Long id, Integer room_number, RoomTypes room_type, Integer number_beds) {
         this.id = id;
         this.room_number = room_number;
         this.room_type = room_type;
         this.number_beds = number_beds;
     }
 
-    public Room(Integer room_number, String room_type, Integer number_beds) {
+    public Room(Integer room_number, RoomTypes room_type, Integer number_beds) {
         this.room_number = room_number;
         this.room_type = room_type;
         this.number_beds = number_beds;
@@ -56,11 +56,11 @@ public class Room {
         this.room_number = room_number;
     }
 
-    public String getRoom_type() {
+    public RoomTypes getRoom_type() {
         return room_type;
     }
 
-    public void setRoom_type(String room_type) {
+    public void setRoom_type(RoomTypes room_type) {
         this.room_type = room_type;
     }
 
