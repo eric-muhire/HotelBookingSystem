@@ -72,7 +72,7 @@ private AmazonDynamoDB buildAmazonDynamoDB(){
                         new AWSStaticCredentialsProvider(
                                 new BasicAWSCredentials(
                                         "AKIAWZZIPIWOIJKW2A4C",
-                                        ""
+                                        System.getenv().getOrDefault("AWS_DB_PASS", "DummyKey")
                                 )
 
                         )
