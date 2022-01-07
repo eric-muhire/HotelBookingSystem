@@ -24,3 +24,4 @@ public class Room {
     private Integer number_beds;
     
 }
+
