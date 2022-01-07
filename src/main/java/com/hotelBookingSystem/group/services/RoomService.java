@@ -1,3 +1,5 @@
+
+/*
 package com.hotelBookingSystem.group.services;
 import com.hotelBookingSystem.group.models.RoomTypes;
 import org.springframework.stereotype.Service;
@@ -16,3 +18,4 @@ public class RoomService {
         return room;
     }
 }
+*/
