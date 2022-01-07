@@ -1,4 +1,4 @@
-package com.hotelBookingSystem.group.services;
+/*package com.hotelBookingSystem.group.services;
 import com.hotelBookingSystem.group.models.Booking;
 import org.springframework.stereotype.Service;
 
@@ -21,3 +21,4 @@ public class BookingService {
 
     }
 }
+*/

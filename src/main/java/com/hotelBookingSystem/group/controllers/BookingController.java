@@ -1,28 +1,35 @@
 package com.hotelBookingSystem.group.controllers;
+
 import com.hotelBookingSystem.group.models.Booking;
-import com.hotelBookingSystem.group.services.BookingService;
+import com.hotelBookingSystem.group.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/booking")
+
 public class BookingController {
-
-    private final BookingService BookingService;
-
     @Autowired
-    public BookingController(BookingService bookingService) {
-        this.BookingService = bookingService;
+    private BookingRepository bookingRepository;
+
+    @PostMapping("/booking")
+    public Booking saveBooking ( @RequestBody Booking booking){
+        return bookingRepository.save(booking);
     }
 
+    @GetMapping("/booking/{id}")
+    public Booking getBooking(@PathVariable("id") String bookingId){
+        return bookingRepository.getBookingById(bookingId);
+    }
 
-    @GetMapping
-    public List<Booking> getBooking() {
-        return BookingService.getBooking();
+    @DeleteMapping("/booking/{id}")
+    public String deleteBooking(@PathVariable("id") String bookingId){
+        return bookingRepository.delete(bookingId);
+    }
 
+    @PutMapping ("/booking/{id}")
+    public String updateBooking (@PathVariable("id") String bookingId, @RequestBody Booking booking){
+        return bookingRepository.update(bookingId, booking);
     }
 }
