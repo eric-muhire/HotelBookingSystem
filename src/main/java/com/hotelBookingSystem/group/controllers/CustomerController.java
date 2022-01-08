@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-//@RequestMapping(path = "api/v1/customer")
 public class CustomerController {
 
-    //private final CustomerService CustomerService;
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -17,12 +15,6 @@ public class CustomerController {
     public Customer saveCustomer(@RequestBody Customer customer){
         return customerRepository.save(customer);
     }
-
-   // @Autowired
-    //public CustomerController(CustomerService customerService) {
-      //  this.CustomerService = customerService;
-   // }
-
 
     @GetMapping("/customer/{id}")
     public Customer getCustomer(@PathVariable("id") String customerId) {

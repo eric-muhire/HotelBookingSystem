@@ -22,6 +22,8 @@ public class Room {
     private RoomTypes room_type;
     @DynamoDBAttribute
     private Integer number_beds;
+    @DynamoDBAttribute
+    private Features features;
     
 }
 

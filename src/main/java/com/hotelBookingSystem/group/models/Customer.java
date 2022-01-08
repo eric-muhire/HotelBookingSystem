@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamoDBDocument
 @DynamoDBTable(tableName = "customer")
 public class Customer {
 
@@ -31,6 +30,5 @@ public class Customer {
     private String zipCode;
     @DynamoDBAttribute
     private String country;
-
 
 }
