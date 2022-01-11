@@ -5,6 +5,8 @@ import com.hotelBookingSystem.group.models.RoomTypes;
 import com.hotelBookingSystem.group.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -12,6 +14,8 @@ public class RoomController {
 
     @Autowired
     private RoomRepository roomRepository;
+
+
 
     @PostMapping("/room")
     public Room saveRoom(@RequestBody Room room) {
