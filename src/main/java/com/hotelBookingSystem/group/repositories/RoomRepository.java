@@ -2,12 +2,15 @@ package com.hotelBookingSystem.group.repositories;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import com.hotelBookingSystem.group.models.Room;
 import com.hotelBookingSystem.group.models.RoomTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class RoomRepository {
@@ -48,6 +51,9 @@ public class RoomRepository {
         return "Room Deleted";
     }
 
+    public List<Room> getAll() {
+        return dynamoDBMapper.scan(Room.class, new DynamoDBScanExpression());
+    }
 }
 
 
