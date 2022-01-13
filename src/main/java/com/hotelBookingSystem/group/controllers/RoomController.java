@@ -15,8 +15,6 @@ public class RoomController {
     @Autowired
     private RoomRepository roomRepository;
 
-
-
     @PostMapping("/room")
     public Room saveRoom(@RequestBody Room room) {
         return roomRepository.save(room);
@@ -25,6 +23,11 @@ public class RoomController {
     @GetMapping("/room/{id}")
     public Room getRoom(@PathVariable("id") String roomId) {
         return roomRepository.getRoomById(roomId);
+    }
+    @GetMapping("/room")
+    public List<Room> getAll(){
+        return roomRepository.getAll();
+
     }
 
     @GetMapping("/rooms/{room_type}")
