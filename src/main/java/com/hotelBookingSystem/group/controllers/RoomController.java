@@ -27,7 +27,6 @@ public class RoomController {
     @GetMapping("/room")
     public List<Room> getAll(){
         return roomRepository.getAll();
-
     }
 
     @GetMapping("/rooms/{room_type}")

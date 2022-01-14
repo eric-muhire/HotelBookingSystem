@@ -20,6 +20,9 @@ public class BookingValidator implements Validator {
         if (!checkDate(booking.getCheckIn())) {
             errors.rejectValue("checkIn", "Invalid format");
         }
+        if (!checkDate(booking.getCheckOut())) {
+            errors.rejectValue("checkOut", "Invalid format");
+        }
     }
 
     private boolean checkDate(String input) {
