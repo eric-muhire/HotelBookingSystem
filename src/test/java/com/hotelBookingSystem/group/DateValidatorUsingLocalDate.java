@@ -1,12 +1,5 @@
 package com.hotelBookingSystem.group;
 
-import com.hotelBookingSystem.group.models.DateValidator;
-import com.hotelBookingSystem.group.models.DateValidatorUsingDateTimeFormatter;
-
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-import java.util.Locale;
-
 /*
 public class DateValidatorUsingLocalDate {
 
