@@ -37,6 +37,7 @@ public Room getRoomById(String roomId) {
     return roomRepository.getRoomById(roomId);
     }
 
+
     //OLD
     //Display a list of rooms
     //@GetMapping("/rooms")
@@ -58,6 +59,8 @@ public Room getRoomById(String roomId) {
      List<Room> room = roomRepository.getAll();
      model.addAttribute("rooms", room);
      return "index";
+
+
 
     }
 
