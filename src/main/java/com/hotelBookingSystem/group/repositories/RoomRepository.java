@@ -39,7 +39,7 @@ public class RoomRepository {
                                         new AttributeValue().withS(String.valueOf(room))
 
                                 )));
-        return "roomId";
+        return "redirect:/rooms/getAll";
 
     }
     @RequestMapping("getRoomById")
