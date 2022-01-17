@@ -9,8 +9,12 @@ import com.hotelBookingSystem.group.models.Room;
 import com.hotelBookingSystem.group.models.RoomTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @Repository
 public class RoomRepository {
@@ -19,24 +23,26 @@ public class RoomRepository {
     private DynamoDBMapper dynamoDBMapper;
 
     // TODO: add check so rooms with the same room number will not be created
-    public Room save(Room room) {
+    @RequestMapping("addNewRoom")
+    public String save(Room room) {
         dynamoDBMapper.save(room);
-        return room;
+        return "redirect:/rooms/getAll";
     }
 
     // TODO: do not update room numbers to a number that already exists
-    public String update(String roomId, Room room) {
+    @RequestMapping(value = "/updateRoom", method ={PUT, RequestMethod.GET})
+    public String update(Room room) {
         dynamoDBMapper.save(room,
                 new DynamoDBSaveExpression()
                         .withExpectedEntry("roomId",
                                 new ExpectedAttributeValue(
-                                        new AttributeValue().withS(roomId)
+                                        new AttributeValue().withS(String.valueOf(room))
 
                                 )));
-        return roomId;
+        return "redirect:/rooms/getAll";
 
     }
-
+    @RequestMapping("getRoomById")
     public Room getRoomById(String roomId) {
         return dynamoDBMapper.load(Room.class, roomId);
     }
@@ -48,9 +54,9 @@ public class RoomRepository {
     public String delete(String roomId) {
         Room room = dynamoDBMapper.load(Room.class, roomId);
         dynamoDBMapper.delete(room);
-        return "Room Deleted";
+        return "Room Deleted " + roomId;
     }
-
+    @RequestMapping("/getAll")
     public List<Room> getAll() {
         return dynamoDBMapper.scan(Room.class, new DynamoDBScanExpression());
     }

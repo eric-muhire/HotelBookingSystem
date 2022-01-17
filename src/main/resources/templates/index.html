@@ -1,33 +1,134 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Hotel Booking System</title>
+<link href="/webjars/bootstrap/4.6.0/css/bootstrap.css" rel="stylesheet" />
+<script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
+<meta charset="ISO-8859-1">
+<title>School Hotel </title>
 </head>
 <body>
-<!-- Navigation -->
-    <div align="center">
-        <div class="container">
-            <a class>HOTEL BOOKING SYSTEM</a>
-    <h1>Room List</h1>
-    <table border="1" >
-        <thead>
-        <tr>
-            <th>Room Type</th>
-            <th>Features</th>
-            <th>Number of beds</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr  th:each="room: ${id}">
-                <td th:text="${room_type}"></td>
+<H2>List of rooms</H2>
+<div align="center">
+</div>
 
-        </tr>
 
-        </tbody>
-    </table>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add new</button>
 
+
+<table class="table table-striped">
+<thead>
+<tr>
+<td>Room Id</td>
+<td>Room number</td>
+<td>Room Type</td>
+<td>Number of beds</td>
+<td>Edit</td>
+</tr>
+</thead>
+<tr th:each="room:${rooms}">
+<td th:text="${room.roomId}">roomId</td>
+<td th:text="${room.room_number}">room_number</td>
+<td th:text="${room.room_type}">room_type</td>
+<td th:text="${room.number_beds}">number_beds</td>
+<td><a th:href="@{/rooms/updateRoom/(roomId=${room.roomId})}" class="btn btn-warning">Edit</a>
+</td>
+        <!-- <td th:text="${room.updatedBy}">Updated By</td>
+         <td th:text="${room.updatedOn}">Updated On</td>-->
+    </tr>
+</table>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/rooms/addNewRoom}" method="post">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Room number:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="room_number">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Room type:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="room_type">
+                </div>
+
+                    <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Number of beds:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="number_beds">
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form th:action="@{/rooms/updateRoom}" method="put">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit room</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Room number:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="room_numberEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Room type:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="room_typeEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Number of beds:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="number_bedsEdit">
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

@@ -4,29 +4,64 @@ import com.hotelBookingSystem.group.models.Room;
 import com.hotelBookingSystem.group.models.RoomTypes;
 import com.hotelBookingSystem.group.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 import java.util.List;
 
-@RestController
+@Controller
+@RequestMapping("/rooms")
 public class RoomController {
 
     @Autowired
     private RoomRepository roomRepository;
 
-    @PostMapping("/room")
-    public Room saveRoom(@RequestBody Room room) {
-        return roomRepository.save(room);
+    //OLD
+//    @PostMapping("/room")
+//    public Room saveRoom(@RequestBody Room room) {
+//        return roomRepository.save(room);
+@PostMapping("/addNewRoom")
+public String saveRoom (Room room) {
+    roomRepository.save(room);
+    return "redirect:/rooms/getAll";
     }
 
-    @GetMapping("/room/{id}")
-    public Room getRoom(@PathVariable("id") String roomId) {
-        return roomRepository.getRoomById(roomId);
+    //OLD
+//    @GetMapping("/room/{id}")
+//    public Room getRoom(@PathVariable("id") String roomId) {
+//        return roomRepository.getRoomById(roomId);
+@RequestMapping("getRoomById")
+@ResponseBody
+public Room getRoomById(String roomId) {
+    return roomRepository.getRoomById(roomId);
     }
-    @GetMapping("/room")
-    public List<Room> getAll(){
-        return roomRepository.getAll();
+
+
+    //OLD
+    //Display a list of rooms
+    //@GetMapping("/rooms")
+//    public List<Room> getAll(){
+//        return roomRepository.getAll();
+//    @RequestMapping("/rooms")
+//    public String getAll(Model model){
+//        List<Room> room = roomRepository.getAll();
+//        model.addAttribute("listRoom", room);
+//        return "index" ;
+//    public String viewHomePage(Model model){
+//        model.addAttribute("listRoom", roomRepository.getAll());
+//
+//        return "index";
+   @RequestMapping("/getAll")
+//    public List<Room> getAll(){
+//        return roomRepository.getAll();
+   public String getAll(Model model){
+     List<Room> room = roomRepository.getAll();
+     model.addAttribute("rooms", room);
+     return "index";
+
+
+
     }
 
     @GetMapping("/rooms/{room_type}")
@@ -39,9 +74,15 @@ public class RoomController {
         return roomRepository.delete(roomId);
     }
 
-    @PutMapping("/room/{id}")
-    public String updateRoom(@PathVariable("id") String roomId, @RequestBody Room room){
-        return roomRepository.update(roomId,room);
+    //OLD
+
+//    @PutMapping("/room/{id}")
+//    public String updateRoom(@PathVariable("id") String roomId, @RequestBody Room room){
+//        return roomRepository.update(roomId,room);
+@RequestMapping("/updateRoom")
+public String updateRoom(Room room){
+     roomRepository.update(room);
+    return "redirect:/rooms/getAll";
     }
 
 }
