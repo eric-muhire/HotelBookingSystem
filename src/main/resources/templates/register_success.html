@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Booking Success</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h2>Booking Succeeded!</h2>
+    <span>Full name:</span><span th:text="${booking.name}"></span><br/>
+    <span>E-mail:</span><span th:text="${booking.email}"></span><br/>
+    <span>Gender:</span><span th:text="${booking.gender}"></span><br/>
+    <span>City:</span><span th:text="${booking.city}"></span><br/>
+    <span>Check in:</span><span th:text="${booking.checkIN}"></span><br/>
+    <span>Check out:</span><span th:text="${booking.checkOut}"></span><br/>
+    <span>Room View:</span><span th:text="${booking.roomView}"></span><br/>
+    <span>Room Types:</span><span th:text="${booking.roomTypes}"></span><br/>
+    <span>Physical assisstance?</span><span th:text="${booking.physicalAssisstance}"></span><br/>
+    <span>Note:</span><span th:text="${booking.note}"></span><br/>
+</div>
+</body>
+</html>
