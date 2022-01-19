@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Booking Registration</title>
+    <style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h1>Booking Registration</h1>
+    <form action="#" th:action="@{/register}" method="post" th:object="${booking}">
+        <label>Full name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+
+        <label>Gender:</label>
+        <input type="radio" th:field="*{gender}" value="Male" />Male
+        <input type="radio" th:field="*{gender}" value="Female" />Female<br/>
+
+        <label>E-mail:</label>
+        <input type="text" th:field="*{email}" /><br/>
+
+        <label>City:</label>
+        <input type="text" th:field="*{city}" /><br/>
+
+        <label>Check in (yyyy-mm-dd):</label>
+        <input type="text" th:field="*{checkIN}" /><br/>
+
+        <label>Check out (yyyy-mm-dd):</label>
+        <input type="text" th:field="*{checkOut}" /><br/>
+
+        <label>Room View:</label>
+        <select th:field="*{roomView}">
+            <option th:each="p : ${listRoomView}" th:value="${p}" th:text="${p}" />
+        </select>
+        <br/>
+
+        <label>Room Types:</label>
+        <select th:field="*{roomTypes}">
+            <option th:each="p : ${listRoomTypes}" th:value="${p}" th:text="${p}" />
+        </select>
+        <br/>
+
+        <label>Physical assisstance?</label>
+        <input type="checkbox" th:field="*{physicalAssisstance}" /><br/>
+
+        <label>Note:</label>
+        <textarea rows="5" cols="25" th:field="*{note}"></textarea>
+        <br/>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>

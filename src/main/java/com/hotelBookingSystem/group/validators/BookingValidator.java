@@ -1,3 +1,4 @@
+/*
 package com.hotelBookingSystem.group.validators;
 
 import com.hotelBookingSystem.group.models.Booking;
@@ -31,3 +32,5 @@ public class BookingValidator implements Validator {
 
 
 }
+
+ */
