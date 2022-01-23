@@ -1,15 +1,41 @@
-# Hotel booking System
-This is a ...
-## Motivation
-This is a school project and the purpose is to learn AWS web services, create an application and deploy it.
+# Hotel Room Booking System
 
-### Technical information
-**Built with** [Intellij](https://www.jetbrains.com/idea/),
-[]()
-, [Spring Framework](https://spring.io/projects/spring-framework)
+## Table of contents
+* Contributors
+* General information
+* Description
+* Documentation
+* Technologies
 
 
-**Documentation**
+## Contributors
+Eric Muhire\
+Adam Alaa Deeb\
+Sara Löfwander
+
+## General information
+A school project with the purpose to create a web application with a connection to an external database on the AWS platform. 
+
+## Description
+The application is a hotel room booking system built in Java, using the 
+Spring Framework. For the frontend we used Thymeleaf and AWS 
+DynamoDB for our external database. We used Elastic Beanstalk to deploy 
+the application.
+
+
+## Technologies
+Project is created with:
+
+IntelliJ\
+Java (v17)\
+Spring Boot (v2.4.5)\
+Spring Framework\
+Thymeleaf\
+AWS DynamoDB\
+Elastic Beanstalk\
+GitHub Actions 
+
+## Documentation
 
 []()
 
