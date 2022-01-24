@@ -1,6 +1,8 @@
 package com.hotelBookingSystem.group.controllers;
 
 import com.hotelBookingSystem.group.models.Booking;
+import com.hotelBookingSystem.group.models.Room;
+import com.hotelBookingSystem.group.models.RoomTypes;
 import com.hotelBookingSystem.group.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +32,10 @@ public class BookingController {
         Booking booking = new Booking();
         model.addAttribute("booking", booking);
 
-        List<String> listRoomView = Arrays.asList("Sea view", "City view", "Pool view");
+        List<String> listRoomView = Arrays.asList("   ","Sea view", "City view", "Pool view");
         model.addAttribute("listRoomView", listRoomView);
 
-        List<String> listRoomTypes = Arrays.asList("SINGLE ROOM", "DOUBLE ROOM", "FAMILY ROOM", "LUXURY SUITE");
+        List<String> listRoomTypes = Arrays.asList("   ","Single room", "Double room", "Family room", "Luxury suite");
         model.addAttribute("listRoomTypes", listRoomTypes);
 
 
