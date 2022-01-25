@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -20,19 +21,21 @@
 <table class="table table-striped">
 <thead>
 <tr>
-<td>Room Id</td>
+
 <td>Room number</td>
 <td>Room Type</td>
 <td>Number of beds</td>
 <td>Edit</td>
+<td>Book</td>
 </tr>
 </thead>
 <tr th:each="room:${rooms}">
-<td th:text="${room.roomId}">roomId</td>
+
 <td th:text="${room.room_number}">room_number</td>
 <td th:text="${room.room_type}">room_type</td>
 <td th:text="${room.number_beds}">number_beds</td>
 <td><a th:href="@{/rooms/updateRoom/(roomId=${room.roomId})}" class="btn btn-warning">Edit</a>
+<td><a th:href="@{/register}" class="btn btn-warning">Book</a>
 </td>
         <!-- <td th:text="${room.updatedBy}">Updated By</td>
          <td th:text="${room.updatedOn}">Updated On</td>-->
@@ -66,6 +69,11 @@
                     <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Number of beds:</label>
                     <input type="text" class="form-control" id="recipient-name" name="number_beds">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Book:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="booking.Booking">
                 </div>
 
 
