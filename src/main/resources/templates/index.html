@@ -27,6 +27,7 @@
 <td>Number of beds</td>
 <td>Edit</td>
 <td>Book</td>
+<td>Delete</td>
 </tr>
 </thead>
 <tr th:each="room:${rooms}">
@@ -34,10 +35,9 @@
 <td th:text="${room.room_number}">room_number</td>
 <td th:text="${room.room_type}">room_type</td>
 <td th:text="${room.number_beds}">number_beds</td>
-<td><a th:href="@{/rooms/updateRoom/(roomId=${room.roomId})}" class="btn btn-warning">Edit</a>
-<td><a th:href="@{/register}" class="btn btn-warning">Book</a>
-</td>
-        <!-- <td th:text="${room.updatedBy}">Updated By</td>
+    <td><a th:href="@{/rooms/updateRoom(roomId=${room.roomId})}" class="btn btn-warning">Edit</a></td>
+<td><a th:href="@{/register}" class="btn btn-warning">Book</a></td>
+<td><a th:href="@{/rooms/delete(roomId=${room.roomId})}" class="btn btn-danger" id="deleteButton">Delete</a></td>      <!-- <td th:text="${room.updatedBy}">Updated By</td>
          <td th:text="${room.updatedOn}">Updated On</td>-->
     </tr>
 </table>
@@ -70,13 +70,13 @@
                     <label for="recipient-name" class="col-form-label">Number of beds:</label>
                     <input type="text" class="form-control" id="recipient-name" name="number_beds">
                 </div>
-
+<!--
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Book:</label>
                     <input type="text" class="form-control" id="recipient-name" name="booking.Booking">
                 </div>
 
-
+-->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -103,6 +103,10 @@
 
 
                     <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Room Id:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="roomIdEdit">
+                    </div>
+                    <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Room number:</label>
                         <input type="text" class="form-control" id="recipient-name" name="room_numberEdit">
                     </div>
@@ -127,6 +131,28 @@
         </div>
     </form>
 </div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to Delete</p>
+            </div>
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" id="delRef">yes, Delete</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

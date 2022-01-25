@@ -24,8 +24,8 @@ public class Room {
     private Integer number_beds;
     @DynamoDBAttribute
     private Features features;
-    @DynamoDBAttribute
-    private Booking booking;
+//    @DynamoDBAttribute
+//    private Booking booking;
 
 }
 

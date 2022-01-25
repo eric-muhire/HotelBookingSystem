@@ -31,12 +31,12 @@ public class RoomRepository {
 
     // TODO: do not update room numbers to a number that already exists
     @RequestMapping(value = "/updateRoom", method ={PUT, RequestMethod.GET})
-    public String update(Room room) {
+    public String update(String roomId, Room room) {
         dynamoDBMapper.save(room,
                 new DynamoDBSaveExpression()
                         .withExpectedEntry("roomId",
                                 new ExpectedAttributeValue(
-                                        new AttributeValue().withS(String.valueOf(room))
+                                        new AttributeValue().withS(roomId)
 
                                 )));
         return "redirect:/rooms/getAll";

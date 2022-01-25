@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.groovy.GroovyMarkupConfig;
 
 import java.util.List;
 
@@ -80,8 +81,8 @@ public Room getRoomById(String roomId) {
 //    public String updateRoom(@PathVariable("id") String roomId, @RequestBody Room room){
 //        return roomRepository.update(roomId,room);
 @RequestMapping("/updateRoom")
-public String updateRoom(Room room){
-     roomRepository.update(room);
+public String updateRoom(String roomId, @RequestBody Room room){
+     roomRepository.update(roomId,room);
     return "redirect:/rooms/getAll";
     }
 
