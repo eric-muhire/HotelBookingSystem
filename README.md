@@ -10,7 +10,7 @@
 
 ## Contributors
 Eric Muhire\
-Adam Alaa Deeb\
+Alaa Deeb\
 Sara Löfwander
 
 ## General information
