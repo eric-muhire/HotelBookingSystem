@@ -37,7 +37,7 @@
 <td th:text="${room.number_beds}">number_beds</td>
     <td><a th:href="@{/rooms/updateRoom(roomId=${room.roomId})}" class="btn btn-warning">Edit</a></td>
 <td><a th:href="@{/register}" class="btn btn-warning">Book</a></td>
-<td><a th:href="@{/rooms/delete(roomId=${room.roomId})}" class="btn btn-danger" id="deleteButton">Delete</a></td>      <!-- <td th:text="${room.updatedBy}">Updated By</td>
+<td><a th:href="@{/rooms/delete/{id}/(roomId=${room.roomId})}" class="btn btn-danger" id="deleteButton">Delete</a></td>      <!-- <td th:text="${room.updatedBy}">Updated By</td>
          <td th:text="${room.updatedOn}">Updated On</td>-->
     </tr>
 </table>

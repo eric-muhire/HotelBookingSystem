@@ -54,7 +54,7 @@ public class RoomRepository {
     public String delete(String roomId) {
         Room room = dynamoDBMapper.load(Room.class, roomId);
         dynamoDBMapper.delete(room);
-        return "Room Deleted " + roomId;
+        return "redirect:/rooms/getAll";
     }
     @RequestMapping("/getAll")
     public List<Room> getAll() {

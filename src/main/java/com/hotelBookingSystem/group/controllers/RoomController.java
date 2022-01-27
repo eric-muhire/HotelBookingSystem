@@ -69,12 +69,18 @@ public Room getRoomById(String roomId) {
     public Room getRooms(@PathVariable("room_type") RoomTypes room_type) {
         return roomRepository.getRoomByType(room_type);
     }
-
-    @DeleteMapping("/room/{id}")
-    public String deleteRoom(@PathVariable("id") String roomId){
-        return roomRepository.delete(roomId);
+//
+//    @GetMapping("/delete/{id}")
+//    public String deleteRoom(@PathVariable("id") String roomId){
+//            roomRepository.delete(roomId);
+//            return "redirect:/rooms/getAll";
+//    }
+    @GetMapping("/delete/{id}")
+    public String deleteRoom(@PathVariable("id") String roomId , Model model) {
+        Room room = roomRepository.getRoomById(roomId);
+        roomRepository.delete(String.valueOf(room));
+        return "redirect:/rooms/getAll";
     }
-
     //OLD
 
 //    @PutMapping("/room/{id}")
