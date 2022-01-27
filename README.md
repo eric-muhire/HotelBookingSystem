@@ -31,17 +31,9 @@ Java (v17)\
 Spring Boot (v2.4.5)\
 Spring Framework\
 Thymeleaf\
+Trello\
+Postman\
 AWS DynamoDB\
 Elastic Beanstalk\
 GitHub Actions 
 
-## Documentation
-
-[]()
-
-#### Code samples
-
-
-##### ScreenShots/Image
-
-[Image 1]()
